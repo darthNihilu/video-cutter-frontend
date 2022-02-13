@@ -128,13 +128,6 @@ function App() {
           onChange={onChange}
           style={{ width: 400 }}
         />
-        {/* <Button
-          variant="contained"
-          onClick={parseLinkToId}
-          style={{ marginLeft: 8 }}
-        >
-          Начать
-        </Button> */}
       </Flex>
 
       {parseLinkToId(link) !== "" && (

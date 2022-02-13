@@ -1,14 +1,37 @@
-import React from "react";
+import {
+    background,
+    BackgroundProps, border,
+    BorderProps, color,
+    ColorProps, compose, display, DisplayProps, flexbox, FlexboxProps, grid, GridProps, layout,
+    LayoutProps, position,
+    PositionProps, space,
+    SpaceProps, system, typography,
+    TypographyProps
+} from "styled-system";
+import {HTMLAttributes} from "react";
 import styled from "styled-components";
 
-const Container = styled.div``;
+interface BoxProps
+    extends BackgroundProps,
+        BorderProps,
+        LayoutProps,
+        PositionProps,
+        SpaceProps,
+        ColorProps,
+        TypographyProps,
+        DisplayProps,
+        FlexboxProps,
+        GridProps,
+        Omit<HTMLAttributes<HTMLDivElement>, 'color'> {
+    textTransform?: 'capitalize' | 'uppercase' | 'lowercase' | 'none'
+}
 
-const Component: React.FC = () => {
-  return (
-    <Container>
-      <h1>Test</h1>
-    </Container>
-  );
-};
+const textTransform = system({
+    textTransform: true,
+})
 
-export default Component;
+const Box = styled.div<BoxProps>(
+    compose(background, border, layout, position, space, color, typography, display, grid, flexbox, textTransform)
+)
+
+export default Box

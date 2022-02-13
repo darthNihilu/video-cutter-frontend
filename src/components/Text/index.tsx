@@ -1,14 +1,8 @@
-import React from "react";
 import styled from "styled-components";
+import Box from "../Box";
 
-const Container = styled.div``;
+const Text = styled(Box)`
+  font-family: "Roboto", sans-serif;
+`;
 
-const Component: React.FC = () => {
-  return (
-    <Container>
-      <h1>Test</h1>
-    </Container>
-  );
-};
-
-export default Component;
+export default Text;
